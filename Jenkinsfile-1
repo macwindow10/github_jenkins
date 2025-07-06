@@ -2,19 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Get User Input') {
-            steps {
-                script {
-                    // Prompt for user input
-                    USER_INPUT = input(
-                        id: 'userInput', message: 'Enter something:', parameters: [
-                            string(defaultValue: 'Hello from Jenkins!', description: 'What do you want to print?', name: 'userMessage')
-                        ]
-                    )
-                }
-            }
-        }
-
         stage('Print with PowerShell') {
             steps {
                 powershell """
@@ -22,9 +9,5 @@ pipeline {
                 """
             }
         }
-    }
-
-    environment {
-        USER_INPUT = "${USER_INPUT}"
     }
 }
