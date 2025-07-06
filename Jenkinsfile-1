@@ -5,7 +5,7 @@ pipeline {
         stage('Print with PowerShell') {
             steps {
                 powershell """
-                    Write-Host 'User Input Received: $env:USER_INPUT'
+                    Write-Host 'Hi there!'
                 """
             }
         }
